@@ -1,14 +1,13 @@
-import 'dart:developer';
-
-import 'package:base_flutter_prj/flutter_gen/app_localizations.dart';
 import 'package:base_flutter_prj/presentations/blocs/app_bloc/app_action.dart';
 import 'package:base_flutter_prj/presentations/blocs/app_bloc/app_bloc.dart';
 import 'package:base_flutter_prj/presentations/blocs/app_bloc/app_state.dart';
+import 'package:base_flutter_prj/presentations/blocs/home_bloc/home_action.dart';
 import 'package:base_flutter_prj/presentations/blocs/home_bloc/home_bloc.dart';
-import 'package:base_flutter_prj/presentations/screens/account_screen/account_screen.dart';
+import 'package:base_flutter_prj/presentations/blocs/home_bloc/home_state.dart';
+import 'package:base_flutter_prj/presentations/screens/widgets/base_button/base_button.dart';
 import 'package:base_flutter_prj/presentations/screens/widgets/base_page/base_page.dart';
-import 'package:base_flutter_prj/presentations/screens/widgets/header/app_header.dart';
-import 'package:base_flutter_prj/utils/global.dart';
+import 'package:base_flutter_prj/presentations/screens/widgets/bottom_sheet_error/bottom_sheet_error.dart';
+import 'package:base_flutter_prj/utils/translate.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -34,8 +33,7 @@ class __HomeScreenPageState extends State<_HomeScreenPage> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    // context.read<HomeBloc>().add(GetListExample());
-    log("Context: ${GlobalApp.init().appContext}");
+    context.read<HomeBloc>().add(GetListMusic());
   }
 
   @override
@@ -45,26 +43,22 @@ class __HomeScreenPageState extends State<_HomeScreenPage> {
       showBackIcon: false,
       child: Container(
         alignment: Alignment.center,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text("HomeScreen"),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, AccountScreen.routeName);
-              },
-              child: Text(AppLocalizations.of(context)!.goToAcccount),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                context.read<AppBloc>().add(
-                  ChangeAppLanguage(language: LanguageLocal.en),
+        child: BlocBuilder<HomeBloc, HomeState>(
+          builder: (context, state) {
+            return ListView.builder(
+              itemCount: state.listMusic!.length,
+              itemBuilder: (_, index) {
+                return Container(
+                  margin: EdgeInsets.all(20.w),
+                  color: Colors.blue,
+                  child: Text(
+                    state.listMusic![index].name!,
+                    style: TextStyle(fontSize: 20.sp),
+                  ),
                 );
               },
-              child: Text(AppLocalizations.of(context)!.goToAcccount),
-            ),
-          ],
+            );
+          },
         ),
       ),
     );

@@ -1,7 +1,15 @@
+import 'package:base_flutter_prj/data/models/music_model/music_model.dart';
+
 class HomeState {
-  const HomeState();
+  final List<MusicModel>? listMusic;
+
+  const HomeState({this.listMusic});
 
   factory HomeState.init() {
-    return HomeState();
+    return HomeState(listMusic: []);
+  }
+
+  HomeState copy({List<MusicModel>? listMusic}) {
+    return HomeState(listMusic: listMusic ?? this.listMusic);
   }
 }

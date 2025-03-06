@@ -11,9 +11,12 @@ class AccountScreen extends StatelessWidget {
     return BasePage(
       title: "Account Screen",
       child: Center(
-        child: Text(
-          "This is Account Screen",
-          style: TextStyle(fontSize: 30.sp),
+        child: Container(
+          width: 100.w,
+          child: Text(
+            "This is Account Screen",
+            style: TextStyle(fontSize: 30.sp),
+          ),
         ),
       ),
     );

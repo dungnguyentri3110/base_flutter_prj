@@ -13,4 +13,19 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get goToAcccount => 'Đi đến màn hình tài khoản';
+
+  @override
+  String get titleError => 'Thông báo';
+
+  @override
+  String get closeButton => 'Đóng';
+
+  @override
+  String get nextButton => 'Tiếp tục';
+
+  @override
+  String get changeLanguage => 'Đổi ngôn ngữ';
+
+  @override
+  String get showDialog => 'Xem lỗi';
 }

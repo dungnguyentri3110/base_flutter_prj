@@ -10,7 +10,7 @@ class ApiManager {
     instance ??= ApiManager(
       dio: Dio(
         BaseOptions(
-          baseUrl: '',
+          baseUrl: 'http://10.86.35.93:3000/',
           connectTimeout: const Duration(seconds: 30),
           receiveTimeout: const Duration(seconds: 30),
         ),
@@ -52,21 +52,32 @@ class CustomError extends DioException {
     switch (response?.statusCode) {
       case 400:
         return ErrorCode.badRequest;
+      case 404:
+        return ErrorCode.notFound;
       default:
         return ErrorCode.serverNotResponse;
     }
   }
 }
 
-enum ErrorCode { notFound, badRequest, serverNotResponse, timeout }
+enum ErrorCode { notFound, badRequest, serverNotResponse, timeout, success }
 
 extension ErrorValue on ErrorCode {
   int get value {
     switch (this) {
       case ErrorCode.badRequest:
         return 400;
+      case ErrorCode.success:
+        return 200;
       default:
         return 200;
     }
   }
+}
+
+class ApiException implements Exception {
+  final int? code;
+  final String? message;
+
+  ApiException({this.code, this.message});
 }

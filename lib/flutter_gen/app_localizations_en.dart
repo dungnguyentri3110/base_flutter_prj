@@ -13,4 +13,19 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get goToAcccount => 'Go to Account Screen';
+
+  @override
+  String get titleError => 'Notification';
+
+  @override
+  String get closeButton => 'Close';
+
+  @override
+  String get nextButton => 'Next';
+
+  @override
+  String get changeLanguage => 'Change language';
+
+  @override
+  String get showDialog => 'Show dialog';
 }

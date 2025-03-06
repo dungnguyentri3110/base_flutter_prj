@@ -60,7 +60,7 @@ class _MyHomePageState extends State<MyApp> {
               supportedLocales: AppLocalizations.supportedLocales,
               locale: Locale(state.language!.value),
               theme: ThemeData(
-                colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+                colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
               ),
             );
           },

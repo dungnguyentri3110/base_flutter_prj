@@ -4,5 +4,9 @@
     "description": "The conventional newborn programmer greeting"
   },
   "goToAcccount": "Go to Account Screen",
-  "@goToAcccount": {}
+  "titleError": "Notification",
+  "closeButton": "Close",
+  "nextButton": "Next",
+  "changeLanguage": "Change language",
+  "showDialog": "Show dialog"
 }

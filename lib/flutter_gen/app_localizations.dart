@@ -106,6 +106,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Go to Account Screen'**
   String get goToAcccount;
+
+  /// No description provided for @titleError.
+  ///
+  /// In en, this message translates to:
+  /// **'Notification'**
+  String get titleError;
+
+  /// No description provided for @closeButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Close'**
+  String get closeButton;
+
+  /// No description provided for @nextButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get nextButton;
+
+  /// No description provided for @changeLanguage.
+  ///
+  /// In en, this message translates to:
+  /// **'Change language'**
+  String get changeLanguage;
+
+  /// No description provided for @showDialog.
+  ///
+  /// In en, this message translates to:
+  /// **'Show dialog'**
+  String get showDialog;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
