@@ -1,9 +1,7 @@
 import 'dart:developer';
 
 import 'package:base_flutter_prj/data/remote/api_manager.dart';
-import 'package:base_flutter_prj/data/remote/retrofits/example_request.dart';
 import 'package:base_flutter_prj/data/repositories/example_repositories.dart';
-import 'package:base_flutter_prj/flutter_gen/app_localizations.dart';
 import 'package:base_flutter_prj/presentations/blocs/home_bloc/home_action.dart';
 import 'package:base_flutter_prj/presentations/blocs/home_bloc/home_state.dart';
 import 'package:base_flutter_prj/presentations/screens/widgets/bottom_sheet_error/bottom_sheet_error.dart';
@@ -15,13 +13,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeBloc extends Bloc<HomeAction, HomeState> {
   HomeBloc() : super(HomeState.init()) {
+    exampleRepos = getIt.get<ExampleRepositories>();
     on<GetListExample>(getListExample);
     on<GetListMusic>(getListMusic);
   }
 
-  final exampleRepos = ExampleRepositories(
-    api: ExampleClient(ApiManager.init().dio),
-  );
+  late ExampleRepositories exampleRepos;
 
   Future<void> getListExample(
     GetListExample action,

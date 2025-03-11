@@ -53,7 +53,11 @@ class __HomeScreenPageState extends State<_HomeScreenPage> {
                   color: Colors.blue,
                   child: Text(
                     state.listMusic![index].name!,
-                    style: TextStyle(fontSize: 20.sp),
+                    style: TextStyle(
+                      fontSize: 20.sp,
+                      fontStyle: FontStyle.italic,
+                      fontWeight: FontWeight.w900,
+                    ),
                   ),
                 );
               },

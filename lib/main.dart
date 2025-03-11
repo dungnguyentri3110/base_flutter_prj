@@ -1,10 +1,13 @@
-import 'package:base_flutter_prj/data/remote/api_manager.dart';
+ import 'package:base_flutter_prj/data/remote/api_manager.dart';
+import 'package:base_flutter_prj/data/remote/retrofits/example_request.dart';
+import 'package:base_flutter_prj/data/repositories/example_repositories.dart';
 import 'package:base_flutter_prj/flutter_gen/app_localizations.dart';
 import 'package:base_flutter_prj/navigations/routes.dart';
 import 'package:base_flutter_prj/presentations/blocs/app_bloc/app_bloc.dart';
 import 'package:base_flutter_prj/presentations/blocs/app_bloc/app_state.dart';
 import 'package:base_flutter_prj/presentations/screens/home_screen/home_screen.dart';
 import 'package:base_flutter_prj/utils/global.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -40,6 +43,11 @@ class _MyHomePageState extends State<MyApp> {
     GlobalApp.init();
     final api = ApiManager.init();
     api.configureDio();
+    getIt.registerSingleton<GlobalApp>(GlobalApp());
+    getIt.registerSingleton<ExampleClient>(ExampleClient(api.dio));
+    getIt.registerSingleton<ExampleRepositories>(
+      ExampleRepositories(api: getIt()),
+    );
   }
 
   @override
@@ -61,6 +69,7 @@ class _MyHomePageState extends State<MyApp> {
               locale: Locale(state.language!.value),
               theme: ThemeData(
                 colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+                fontFamily: 'SF-Pro-Display',
               ),
             );
           },

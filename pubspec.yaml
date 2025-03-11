@@ -46,6 +46,7 @@ dependencies:
   flutter_localization: ^0.3.1
   flutter_svg: ^2.0.17
   intl: any
+  get_it: ^8.0.3
 
 dev_dependencies:
   flutter_test:
@@ -90,12 +91,28 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
+  fonts:
+    - family: SF-Pro-Display
+      fonts:
+        - asset: fonts/SF-Pro-Display-Black.otf
+        - asset: fonts/SF-Pro-Display-Bold.otf
+        - asset: fonts/SF-Pro-Display-BoldItalic.otf
+        - asset: fonts/SF-Pro-Display-Heavy.otf
+        - asset: fonts/SF-Pro-Display-HeavyItalic.otf
+        - asset: fonts/SF-Pro-Display-Light.otf
+        - asset: fonts/SF-Pro-Display-LightItalic.otf
+        - asset: fonts/SF-Pro-Display-Medium.otf
+        - asset: fonts/SF-Pro-Display-MediumItalic.otf
+        - asset: fonts/SF-Pro-Display-Regular.otf
+        - asset: fonts/SF-Pro-Display-RegularItalic.otf
+        - asset: fonts/SF-Pro-Display-SemiBold.otf
+        - asset: fonts/SF-Pro-Display-SemiBoldItalic.otf
+        - asset: fonts/SF-Pro-Display-Thin.otf
+        - asset: fonts/SF-Pro-Display-ThinItalic.otf
+        - asset: fonts/SF-Pro-Display-Ultralight.otf
+        - asset: fonts/SF-Pro-Display-UltralightItalic.otf
+        - asset: fonts/SF-Pro-Italic.ttf
+
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf
