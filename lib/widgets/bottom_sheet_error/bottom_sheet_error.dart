@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:base_flutter_prj/presentations/screens/widgets/base_button/base_button.dart';
+import 'package:base_flutter_prj/widgets/base_button/base_button.dart';
 import 'package:base_flutter_prj/utils/global.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

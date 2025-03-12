@@ -1,15 +1,18 @@
 import 'dart:developer';
 
 import 'package:base_flutter_prj/data/remote/api_manager.dart';
+import 'package:base_flutter_prj/data/remote/retrofits/example_request.dart';
 import 'package:base_flutter_prj/data/repositories/example_repositories.dart';
 import 'package:base_flutter_prj/presentations/blocs/home_bloc/home_action.dart';
 import 'package:base_flutter_prj/presentations/blocs/home_bloc/home_state.dart';
-import 'package:base_flutter_prj/presentations/screens/widgets/bottom_sheet_error/bottom_sheet_error.dart';
-import 'package:base_flutter_prj/presentations/screens/widgets/loading/loading.dart';
+import 'package:base_flutter_prj/utils/app_logger.dart';
+import 'package:base_flutter_prj/widgets/bottom_sheet_error/bottom_sheet_error.dart';
+import 'package:base_flutter_prj/widgets/loading/loading.dart';
 import 'package:base_flutter_prj/utils/global.dart';
 import 'package:base_flutter_prj/utils/translate.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:logger/logger.dart';
 
 class HomeBloc extends Bloc<HomeAction, HomeState> {
   HomeBloc() : super(HomeState.init()) {
@@ -38,6 +41,7 @@ class HomeBloc extends Bloc<HomeAction, HomeState> {
     try {
       Loading.show();
       final response = await exampleRepos.getListMusic();
+      AppLogger.log(message: response);
       await Future.delayed(const Duration(seconds: 3), () {
         Loading.hide();
         if (response.isNotEmpty) {
@@ -45,6 +49,7 @@ class HomeBloc extends Bloc<HomeAction, HomeState> {
         }
       });
     } catch (error) {
+      AppLogger.log(level: Level.error, message: error);
       await Future.delayed(const Duration(seconds: 3), () {
         Loading.hide();
         BottomSheetError.show(
@@ -62,9 +67,9 @@ class HomeBloc extends Bloc<HomeAction, HomeState> {
         );
       });
       if (error is DioException) {
-        log("Error music: ${error.response?.statusCode}");
+        print("Error music: ${error.response?.statusCode}");
       } else if (error is ApiException) {
-        log("Error music: ${error.code}");
+        print("Error music: ${error.code}");
       }
     }
   }

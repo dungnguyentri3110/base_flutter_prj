@@ -1,13 +1,7 @@
-import 'package:base_flutter_prj/presentations/blocs/app_bloc/app_action.dart';
-import 'package:base_flutter_prj/presentations/blocs/app_bloc/app_bloc.dart';
-import 'package:base_flutter_prj/presentations/blocs/app_bloc/app_state.dart';
 import 'package:base_flutter_prj/presentations/blocs/home_bloc/home_action.dart';
 import 'package:base_flutter_prj/presentations/blocs/home_bloc/home_bloc.dart';
 import 'package:base_flutter_prj/presentations/blocs/home_bloc/home_state.dart';
-import 'package:base_flutter_prj/presentations/screens/widgets/base_button/base_button.dart';
-import 'package:base_flutter_prj/presentations/screens/widgets/base_page/base_page.dart';
-import 'package:base_flutter_prj/presentations/screens/widgets/bottom_sheet_error/bottom_sheet_error.dart';
-import 'package:base_flutter_prj/utils/translate.dart';
+import 'package:base_flutter_prj/widgets/base_page/base_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
