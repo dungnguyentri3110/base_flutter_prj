@@ -1,13 +1,24 @@
+import 'package:base_flutter_prj/domain/entity/music_entity_response.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'music_model.g.dart';
 
 @JsonSerializable()
-class MusicModel {
-  int? id;
-  String? name;
+class MusicModelResponse {
+  final List<MusicModel>? listMusic;
 
-  MusicModel({this.id, this.name});
+  MusicModelResponse({ this.listMusic});
+
+  factory MusicModelResponse.fromJson(Map<String, dynamic> json) =>
+      _$MusicModelResponseFromJson(json);
+
+  Map<String, dynamic> toJson() => _$MusicModelResponseToJson(this);
+
+}
+
+@JsonSerializable()
+class MusicModel extends MusicEntityResponse {
+  MusicModel({super.id, super.name});
 
   factory MusicModel.fromJson(Map<String, dynamic> json) =>
       _$MusicModelFromJson(json);

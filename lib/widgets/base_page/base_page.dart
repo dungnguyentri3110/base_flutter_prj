@@ -20,7 +20,10 @@ class BasePage extends StatelessWidget {
         preferredSize: Size.fromHeight(55.w),
         child: AppHeader(title: title ?? "", showIconBack: showBackIcon),
       ),
-      body: child,
+      body: Padding(
+        padding: EdgeInsets.only(bottom: ScreenUtil().bottomBarHeight),
+        child: child,
+      ),
     );
   }
 }

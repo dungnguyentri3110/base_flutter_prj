@@ -209,6 +209,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.0"
+  dartz:
+    dependency: "direct main"
+    description:
+      name: dartz
+      sha256: e6acf34ad2e31b1eb00948692468c30ab48ac8250e0f0df661e29f12dd252168
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.10.1"
   dio:
     dependency: "direct main"
     description:
@@ -413,6 +421,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.4.0"
+  injectable:
+    dependency: "direct main"
+    description:
+      name: injectable
+      sha256: "5e1556ea1d374fe44cbe846414d9bab346285d3d8a1da5877c01ad0774006068"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.5.0"
+  injectable_generator:
+    dependency: "direct dev"
+    description:
+      name: injectable_generator
+      sha256: b04673a4c88b3a848c0c77bf58b8309f9b9e064d9fe1df5450c8ee1675eaea1a
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.7.0"
   intl:
     dependency: "direct main"
     description:
@@ -661,8 +685,16 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.5.0"
+  recase:
+    dependency: transitive
+    description:
+      name: recase
+      sha256: e4eb4ec2dcdee52dcf99cb4ceabaffc631d7424ee55e56f280bc039737f89213
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.1.0"
   retrofit:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: retrofit
       sha256: c6cc9ad3374e6d07008343140a67afffaaa34cdf6bf08d4847d91417a99dcf45

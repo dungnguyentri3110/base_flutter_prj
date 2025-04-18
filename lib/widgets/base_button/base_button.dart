@@ -6,9 +6,11 @@ class BaseButton extends StatelessWidget {
     super.key,
     this.onPress,
     this.titleButton,
-    this.height = 40,
+    this.height,
     this.backgroundColor = Colors.orange,
     this.titleColor = Colors.white,
+    this.borderRadius,
+    this.width,
   });
 
   final Function? onPress;
@@ -16,6 +18,8 @@ class BaseButton extends StatelessWidget {
   final double? height;
   final Color? backgroundColor;
   final Color? titleColor;
+  final double? borderRadius;
+  final double? width;
 
   factory BaseButton.outline({
     Function? onPress,
@@ -35,17 +39,19 @@ class BaseButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      borderRadius: BorderRadius.circular((height! / 2).w),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(borderRadius ?? 4.r),
+      ),
       color: backgroundColor,
       child: InkWell(
         highlightColor: Colors.transparent,
-        borderRadius: BorderRadius.circular((height! / 2).w),
+        borderRadius: BorderRadius.circular(borderRadius ?? 4.r),
         child: Container(
-          width: double.infinity,
+          width: width ?? double.infinity,
           alignment: Alignment.center,
-          height: height!.w,
+          height: height ?? 49.w,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular((height! / 2).w),
+            borderRadius: BorderRadius.circular(borderRadius ?? 4.r),
             border: Border.all(width: 1, color: Colors.orange),
           ),
           child: Text(
