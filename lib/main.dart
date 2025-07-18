@@ -1,12 +1,25 @@
 import 'package:base_flutter_prj/core/config.dart';
-import 'package:base_flutter_prj/my_app.dart';
-import 'package:base_flutter_prj/presentations/blocs/app_bloc/app_bloc.dart';
+import 'package:base_flutter_prj/presentations/app_flow/my_app.dart';
+import 'package:base_flutter_prj/presentations/app_flow/app_bloc/app_bloc.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-void main() {
+void main() async {
   configureDependencies();
-  runApp(const MainApplycation());
+  WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
+
+  runApp(
+    EasyLocalization(
+      supportedLocales: [Locale('en'), Locale('vi')],
+      path:
+          'assets/translations', // <-- change the path of the translation files
+      fallbackLocale: Locale('vi'),
+      startLocale: Locale('vi'),
+      child: MainApplycation(),
+    ),
+  );
 }
 
 class MainApplycation extends StatelessWidget {
@@ -17,5 +30,3 @@ class MainApplycation extends StatelessWidget {
     return BlocProvider(create: (_) => AppBloc(), child: MyApp());
   }
 }
-
-

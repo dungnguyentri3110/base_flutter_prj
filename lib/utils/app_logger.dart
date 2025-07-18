@@ -1,12 +1,12 @@
 import 'package:logger/logger.dart';
 
-class AppLogger {
-  AppLogger();
+class Log {
+  Log();
   static final Logger _logger = Logger();
 
-  static void log({Level? level = Level.debug, dynamic message}){
+  static void d(dynamic message, {Level? level = Level.debug}) {
     var title = '[DEBUG]';
-    switch(level!){
+    switch (level!) {
       case Level.info:
         title = '[INFO]';
         break;

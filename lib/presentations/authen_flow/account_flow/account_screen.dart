@@ -1,4 +1,3 @@
-import 'package:base_flutter_prj/utils/translate.dart';
 import 'package:base_flutter_prj/widgets/base_page/base_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -11,15 +10,7 @@ class AccountScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BasePage(
       title: "Account Screen",
-      child: Center(
-        child: Container(
-          width: 100.w,
-          child: Text(
-            Translate.t.showDialog,
-            style: TextStyle(fontSize: 30.sp),
-          ),
-        ),
-      ),
+      child: Center(child: Container(width: 100.w)),
     );
   }
 }

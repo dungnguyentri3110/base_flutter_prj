@@ -43,5 +43,10 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+    <key>CFBundleLocalizations</key>
+    <array>
+        <string>en</string>
+        <string>vn</string>
+    </array>
 </dict>
 </plist>

@@ -1,5 +1,5 @@
-import 'package:base_flutter_prj/presentations/blocs/app_bloc/app_action.dart';
-import 'package:base_flutter_prj/presentations/blocs/app_bloc/app_state.dart';
+import 'package:base_flutter_prj/presentations/app_flow/app_bloc/app_action.dart';
+import 'package:base_flutter_prj/presentations/app_flow/app_bloc/app_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AppBloc extends Bloc<AppAction, AppState> {
