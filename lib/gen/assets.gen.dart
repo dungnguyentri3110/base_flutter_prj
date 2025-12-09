@@ -17,8 +17,22 @@ class $AssetsIconsGen {
   List<String> get values => [document];
 }
 
+class $AssetsTranslationsGen {
+  const $AssetsTranslationsGen();
+
+  /// File path: assets/translations/en.json
+  String get en => 'assets/translations/en.json';
+
+  /// File path: assets/translations/vi.json
+  String get vi => 'assets/translations/vi.json';
+
+  /// List of all assets
+  List<String> get values => [en, vi];
+}
+
 class Assets {
   const Assets._();
 
   static const $AssetsIconsGen icons = $AssetsIconsGen();
+  static const $AssetsTranslationsGen translations = $AssetsTranslationsGen();
 }
