@@ -51,7 +51,11 @@ class __HomeScreenPageState extends State<_HomeScreenPage> {
                   titleButton: 'Change language',
                   onPress: () {
                     context.setLocale(
-                      Locale(state.language == LanguageLocal.en ? 'vi' : "en"),
+                      Locale(
+                        state.language == LanguageLocal.en
+                            ? LanguageLocal.vi.name
+                            : LanguageLocal.en.name,
+                      ),
                     );
                     context.read<AppBloc>().add(
                       ChangeAppLanguage(

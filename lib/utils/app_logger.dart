@@ -1,5 +1,7 @@
 import 'package:logger/logger.dart';
 
+import 'dart:developer';
+
 class Log {
   Log();
   static final Logger _logger = Logger();
@@ -19,6 +21,12 @@ class Log {
       default:
         title = '[DEBUG]';
     }
-    _logger.log(level!, '$title: $message');
+    _logger.log(level, '$title: $message');
+  }
+}
+
+class DevLog {
+  static void d(String message) {
+    log('[DEBUG] $message');
   }
 }

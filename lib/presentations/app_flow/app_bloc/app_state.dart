@@ -1,3 +1,5 @@
+import 'package:equatable/equatable.dart';
+
 enum LanguageLocal { vi, en }
 
 extension LanguageLocalValue on LanguageLocal {
@@ -10,10 +12,10 @@ extension LanguageLocalValue on LanguageLocal {
   }
 }
 
-class AppState {
+class AppState extends Equatable{
   final LanguageLocal? language;
 
-  AppState({this.language});
+  const AppState({this.language});
 
   factory AppState.init() {
     return AppState(language: LanguageLocal.vi);
@@ -22,4 +24,7 @@ class AppState {
   AppState copy({LanguageLocal? language}) {
     return AppState(language: language ?? this.language);
   }
+  
+  @override
+  List<Object?> get props => [language];
 }
