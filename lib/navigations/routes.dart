@@ -1,8 +1,11 @@
-import 'package:base_flutter_prj/presentations/authen_flow/account_flow/account_screen.dart';
-import 'package:base_flutter_prj/presentations/main_flow/home_flow/home_screen.dart';
-import 'package:flutter/material.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:base_flutter_prj/navigations/routes.gr.dart';
 
-final Map<String, WidgetBuilder> routes = {
-  HomeScreen.routeName: (context) => HomeScreen(),
-  AccountScreen.routeName: (context) => AccountScreen(),
-};
+@AutoRouterConfig(replaceInRouteName: 'Screen|Page,Route')
+class AppRouter extends RootStackRouter {
+  @override
+  List<AutoRoute> get routes => [
+    AutoRoute(path: "/login_route", page: LoginRoute.page, initial: true),
+    AutoRoute(path: "/sign_up_route", page: SignUpRoute.page),
+  ];
+}

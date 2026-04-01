@@ -1,3 +1,7 @@
 {
-  "helloWord": "helloWord"
+  "helloWord": "helloWord",
+  "hello": "Hi dung",
+  "login": {
+    "title": "Login"
+  }
 }

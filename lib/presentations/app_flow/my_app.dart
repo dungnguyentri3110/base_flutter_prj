@@ -18,6 +18,8 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyApp> {
+  late AppRouter _appRouter;
+
   @override
   void initState() {
     super.initState();
@@ -26,6 +28,7 @@ class _MyHomePageState extends State<MyApp> {
 
   void initialApp() {
     GlobalApp.init();
+    _appRouter = AppRouter();
     final apiManager = getIt<ApiManager>();
     apiManager.configureDio();
   }
@@ -40,14 +43,12 @@ class _MyHomePageState extends State<MyApp> {
           minTextAdapt: true,
           splitScreenMode: true,
           builder: (_, child) {
-            return MaterialApp(
+            return MaterialApp.router(
               localizationsDelegates: context.localizationDelegates,
               supportedLocales: context.supportedLocales,
               locale: context.locale,
               debugShowCheckedModeBanner: false,
-              routes: routes,
-              initialRoute: HomeScreen.routeName,
-              navigatorKey: GlobalApp.instance?.navigationKey,
+              routerConfig: _appRouter.config(),
               theme: ThemeData(
                 colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
                 fontFamily: 'SF-Pro-Display',

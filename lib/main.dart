@@ -18,13 +18,13 @@ void main() async {
           'assets/translations', // <-- change the path of the translation files
       fallbackLocale: Locale('vi'),
       startLocale: Locale('vi'),
-      child: MainApplycation(),
+      child: MainApplication(),
     ),
   );
 }
 
-class MainApplycation extends StatelessWidget {
-  const MainApplycation({super.key});
+class MainApplication extends StatelessWidget {
+  const MainApplication({super.key});
 
   @override
   Widget build(BuildContext context) {

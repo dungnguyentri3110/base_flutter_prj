@@ -8,10 +8,9 @@ part of 'music_model.dart';
 
 MusicModelResponse _$MusicModelResponseFromJson(Map<String, dynamic> json) =>
     MusicModelResponse(
-      listMusic:
-          (json['listMusic'] as List<dynamic>?)
-              ?.map((e) => MusicModel.fromJson(e as Map<String, dynamic>))
-              .toList(),
+      listMusic: (json['listMusic'] as List<dynamic>?)
+          ?.map((e) => MusicModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$MusicModelResponseToJson(MusicModelResponse instance) =>

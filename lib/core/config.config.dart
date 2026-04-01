@@ -1,5 +1,5 @@
-// dart format width=80
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// dart format width=80
 
 // **************************************************************************
 // InjectableConfigGenerator
@@ -32,8 +32,8 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i888.ExampleRepository>(
       () => _i996.ExampleRepositoryImpl(apiServices: gh<_i697.ApiServices>()),
     );
-    gh.lazySingleton<_i181.ExampleUsecase>(
-      () => _i181.ExampleUsecase(repository: gh<_i888.ExampleRepository>()),
+    gh.lazySingleton<_i181.ExampleUseCase>(
+      () => _i181.ExampleUseCase(repository: gh<_i888.ExampleRepository>()),
     );
     return this;
   }

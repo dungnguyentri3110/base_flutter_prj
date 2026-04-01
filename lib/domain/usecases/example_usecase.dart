@@ -6,10 +6,10 @@ import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
 @LazySingleton()
-final class ExampleUsecase {
+final class ExampleUseCase {
   final ExampleRepository _repository;
 
-  ExampleUsecase({required ExampleRepository repository})
+  ExampleUseCase({required ExampleRepository repository})
     : _repository = repository;
 
   Future<Either<ApiException, BaseResponse<List<MusicModel>>>>

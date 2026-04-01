@@ -8,11 +8,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class HomeBloc extends Cubit<HomeState> {
   HomeBloc() : super(HomeState.init());
 
-  final ExampleUsecase _exampleUsecase = getIt<ExampleUsecase>();
+  final ExampleUseCase _exampleUseCase = getIt<ExampleUseCase>();
 
   Future<void> getListMusic() async {
     Loading.show();
-    final response = await _exampleUsecase.getListMusic();
+    final response = await _exampleUseCase.getListMusic();
     Log.d(response);
     response.fold(
       (error) async {

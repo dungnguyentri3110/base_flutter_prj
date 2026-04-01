@@ -16,5 +16,4 @@ For help getting started with Flutter development, view the
 samples, guidance on mobile development, and a full API reference.
 
 - Chạy lệnh "dart run build_runner build --delete-conflicting-outputs" để gen ngôn ngữ, gen ảnh, gen retrofit
-- Chạy lệnh "flutter gen-l10n" để gen file ngôn ngữ .arb
  # base_flutter_prj
