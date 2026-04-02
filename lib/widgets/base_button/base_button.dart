@@ -1,3 +1,4 @@
+import 'package:base_flutter_prj/themes/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -7,7 +8,7 @@ class BaseButton extends StatelessWidget {
     this.onPress,
     this.titleButton,
     this.height,
-    this.backgroundColor = Colors.orange,
+    this.backgroundColor = AppColors.primary,
     this.titleColor = Colors.white,
     this.borderRadius,
     this.width,
@@ -25,7 +26,7 @@ class BaseButton extends StatelessWidget {
     Function? onPress,
     String? titleButton,
     double? height = 40,
-    Color? titleColor = Colors.orange,
+    Color? titleColor = AppColors.primary,
   }) {
     return BaseButton(
       onPress: onPress,
@@ -40,19 +41,19 @@ class BaseButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(borderRadius ?? 4.r),
+        borderRadius: BorderRadius.circular(borderRadius ?? 10.r),
       ),
       color: backgroundColor,
       child: InkWell(
         highlightColor: Colors.transparent,
-        borderRadius: BorderRadius.circular(borderRadius ?? 4.r),
+        borderRadius: BorderRadius.circular(borderRadius ?? 10.r),
         child: Container(
           width: width ?? double.infinity,
           alignment: Alignment.center,
-          height: height ?? 49.w,
+          height: height ?? 40.w,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(borderRadius ?? 4.r),
-            border: Border.all(width: 1, color: Colors.orange),
+            borderRadius: BorderRadius.circular(borderRadius ?? 10.r),
+            border: Border.all(width: 1, color: AppColors.primary),
           ),
           child: Text(
             titleButton ?? '',

@@ -1,12 +1,8 @@
-class AppConstants {
-  static AppConstants? instance;
+import 'package:injectable/injectable.dart';
 
+@singleton
+class AppConstants {
   AppConstants();
 
-  final String baseUrl = '';
-
-  factory AppConstants.init() {
-    instance ??= AppConstants();
-    return instance!;
-  }
+  final String baseUrl = 'https://connect-api.edupia.com.vn/v1/';
 }

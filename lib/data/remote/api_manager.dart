@@ -1,29 +1,32 @@
 import 'package:base_flutter_prj/core/app_logger.dart';
+import 'package:base_flutter_prj/core/config.dart';
 import 'package:base_flutter_prj/domain/entity/base_response/base_response.dart';
+import 'package:base_flutter_prj/utils/app_constants.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 
 @Singleton()
 class ApiManager {
-  final Dio dio = Dio(
-    BaseOptions(
-      baseUrl: 'http://10.122.8.23:3000/',
-      connectTimeout: const Duration(seconds: 30),
-      receiveTimeout: const Duration(seconds: 30),
-    ),
-  );
+  late Dio dio;
 
   ApiManager();
 
   void configureDio() {
+    dio = Dio(
+      BaseOptions(
+        baseUrl: getIt<AppConstants>().baseUrl,
+        connectTimeout: const Duration(seconds: 30),
+        receiveTimeout: const Duration(seconds: 30),
+      ),
+    );
     dio.interceptors.add(CustomInterceptors());
   }
 
   Future<Either<ApiException, BaseResponse<T>>> requestApi<T>(
     String url, {
     required RequestMethod method,
-    required T Function(dynamic object) fromJsonT,
+    required T Function(dynamic object)? fromJsonT,
     Object? body,
     Map<String, dynamic>? queryParameters,
   }) async {
@@ -40,8 +43,9 @@ class ApiManager {
       if (request.statusCode != 200) {
         return left(
           ApiException(
-            code: ErrorCode.unknow.value,
-            message: ErrorCode.unknow.message,
+            code: request.statusCode,
+            message: request.statusMessage,
+            data: request.data,
           ),
         );
       }
